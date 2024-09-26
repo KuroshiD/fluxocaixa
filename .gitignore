@@ -7,3 +7,5 @@ build/
 .vscode/
 .npm
 node_modules
+.pdf
+.docx

@@ -25,6 +25,10 @@ const UserController = {
     getAll: async (req: Request, res: Response) => {
         const users = await UserService.getAll()
         res.status(200).json(users)
+    },
+    
+    login: async(req: Request, res: Response) => {
+
     }
 }
 
