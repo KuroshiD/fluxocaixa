@@ -1,0 +1,68 @@
+version: '3.7'
+
+services:
+  api1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    hostname: api1
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./src:/home/node/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    expose:
+      - '4000'
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - TIMEZONE=America/Sao_Paulo
+    command: npm run dev
+
+  api2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    hostname: api2
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./src:/home/node/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    expose:
+      - '4000'
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - TIMEZONE=America/Sao_Paulo
+    command: ["sh", "-c", "sleep 5 && npm run dev"]
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "${NGINX_PORT}:80"
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: ${DB}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+
+
+  redis:
+    image: redis:latest
+    command: redis-server --save "" --appendonly no --maxclients 20000
+
+networks:
+  default:
+    driver: bridge
