@@ -8,4 +8,4 @@ build/
 .npm
 node_modules
 .pdf
-.docx
+.dox
