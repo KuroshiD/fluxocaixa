@@ -25,12 +25,15 @@ const formHandler = async (e) => {
     }
 
     const json = await apiUtils.post("/user/login", data)
-    //console.log(json.data.data.username);
-    setLocalStorage("token", json.data.data.username)
-
 
     if (!json.success)
         return showNotification(json.data.message, 3)
+
+    
+    setLocalStorage("token", json.data.data.jwt)
+    setLocalStorage("username", json.data.data.username)
+
+    
 
     showNotification(json.data.message)
 
