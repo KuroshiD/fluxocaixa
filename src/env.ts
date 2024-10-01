@@ -10,7 +10,7 @@ const getEnv = () => {
         db: process.env.DB,
         db_user: process.env.DB_USER,
         db_pass: process.env.DB_PASS,
-        jwt_secret: process.env.JWT_SECRET
+        jwt_secret: process.env.JWT_SECRET || "chavejwt"
     }
 }
 

@@ -6,3 +6,8 @@ interface UserCreationAttributes {
     email: string;
     role: 'admin' | 'common';
 }
+
+interface UserLoginAttributes {
+    email: string;
+    password: string;
+}

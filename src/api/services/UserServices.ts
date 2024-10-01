@@ -3,7 +3,8 @@ import { mandatoryFieldsValidation } from "../validations/generalValidation"
 import ServiceReturn from "../../types/serviceReturn"
 import { userAlreadyExists } from "../validations/userValidation"
 import { User } from "../models/User"
-import { UserCreationAttributes } from "../../types/userRequestData"
+import { UserCreationAttributes, UserLoginAttributes } from "../../types/userRequestData"
+import { signJWT } from "../utils/jwt"
 
 
 
@@ -51,7 +52,47 @@ const UserServices = {
         }
     },
     getAll: async (): Promise<User[]> =>
-        await User.findAll()
+        await User.findAll(),
+
+    login: async (data: UserLoginAttributes): Promise<ServiceReturn> => {
+        const requiredFields = ["email", "password"]
+        const missingFields = mandatoryFieldsValidation(data, requiredFields)
+
+        if (!missingFields.isValid)
+            return {
+                data: missingFields.missingFields,
+                message: "Missing required fields",
+                status: 422
+            }
+
+        const user = await User.scope('withPassword').findOne({ where: { email: data.email } });
+        if (!user)
+            return {
+                message: "User not found",
+                status: 401
+            }
+
+        const isPasswordValid = await bcrypt.compare(data.password, user.password);
+        if (!isPasswordValid)
+            return {
+                message: "User not found",
+                status: 401,
+            }
+
+
+
+
+        return {
+            data: {
+                id: user.id,
+                username: user.username,
+                role: user.role,
+                jwt: signJWT(user)
+            },
+            message: "Login Successful",
+            status: 200
+        }
+    }
 
 }
 

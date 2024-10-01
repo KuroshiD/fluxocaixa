@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { signJWT, verifyJWT } from '../utils/jwt'
+import { verifyJWT } from '../utils/jwt'
 
 interface TokenPayload {
     userId: string;

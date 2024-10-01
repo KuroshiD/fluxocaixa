@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { UserCreationAttributes } from '../../types/userRequestData'
+import { UserCreationAttributes, UserLoginAttributes } from '../../types/userRequestData'
 import { validateRole } from "../validations/userValidation"
 import UserService from "../services/UserServices"
 
@@ -28,7 +28,14 @@ const UserController = {
     },
     
     login: async(req: Request, res: Response) => {
+        const data: UserLoginAttributes = {
+            email: req.body.email,
+            password: req.body.password
+        }
 
+        const login = await UserService.login(data);
+
+        res.status(login.status).json(login);
     }
 }
 
