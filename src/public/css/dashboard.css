@@ -102,4 +102,33 @@
 .interface main.iMain {
     flex: 1;
     padding: 50px;
+
+    .upper-cards {
+        display: flex;
+        justify-content: space-between;
+
+        .card {
+            width: 250px;
+            height: 150px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px 4px rgba(0, 0, 0, .05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            &:hover {
+                background: #0ea2dd;
+                color: white;
+            }
+        }
+    }
+
+    .chart {
+        width: 70%;
+        margin: 60px auto 0 auto;
+    }
 }
+
+
+

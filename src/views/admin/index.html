@@ -23,8 +23,8 @@
             <nav>
 
                 <ul class='list'>
-                    <li><a class='activeBorder' href='#'><ion-icon name="home-outline"></ion-icon> Dashboard</a></li>
-                    <li><a href='#'><ion-icon name="wallet-outline"></ion-icon> Fluxo de Caixa</a></li>
+                    <li><a class='activeBorder' href='/admin'><ion-icon name="home-outline"></ion-icon> Dashboard</a></li>
+                    <li><a href='/admin/home'><ion-icon name="wallet-outline"></ion-icon> Fluxo de Caixa</a></li>
                     <li><a href='#'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
                     <li><a href='#'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios Financeiros</a></li>
                     <li><a href='#'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
@@ -40,10 +40,28 @@
 
         <main class='iMain'>
             <h1>Bem-vindo, Jefferson</h1>
+            <div class="upper-cards">
+                <div class="card">
+                    <span>Receita: R$ 0.00</span>
+                </div>
+                <div class="card">
+                    <span>Despesa: R$ 0.00</span>
+                </div>
+                <div class="card">
+                    <span>Resultado: R$ 0.00</span>
+                </div>
+                <div class="card">
+                    <span>Saldo: R$ 0.00</span>
+                </div>
+            </div>
+            <div class="chart">
+                <canvas id="chart"></canvas>
+            </div>
         </main>
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/static/js/utils.js"></script>
