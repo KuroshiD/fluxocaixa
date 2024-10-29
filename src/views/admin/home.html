@@ -41,177 +41,213 @@
         </div>
 
         <main class='iMain'>
-            <table class="finance-table">
-                <thead>
-                    <tr class="table-header">
-                        <th class="table-header-cell">Tipo:</th>
-                        <th class="table-header-cell">Descrição:</th>
-                        <th class="table-header-cell">Movimentação:</th>
-                        <th class="table-header-cell">Data:</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Janeiro -->
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Limpeza de pele</td>
-                        <td class="table-cell positive">+600.00</td>
-                        <td class="table-cell">2024-01-05</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Compra</td>
-                        <td class="table-cell">Produtos para tratamentos faciais</td>
-                        <td class="table-cell negative">-300.00</td>
-                        <td class="table-cell">2024-01-12</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Taxa</td>
-                        <td class="table-cell">Taxa de transação bancária</td>
-                        <td class="table-cell negative">-20.00</td>
-                        <td class="table-cell">2024-01-15</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Aluguel</td>
-                        <td class="table-cell">Aluguel do espaço</td>
-                        <td class="table-cell negative">-1200.00</td>
-                        <td class="table-cell">2024-01-20</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Massagem terapêutica</td>
-                        <td class="table-cell positive">+900.00</td>
-                        <td class="table-cell">2024-01-25</td>
-                    </tr>
 
-                    <!-- Fevereiro -->
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Procedimento de depilação</td>
-                        <td class="table-cell positive">+400.00</td>
-                        <td class="table-cell">2024-02-02</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Compra</td>
-                        <td class="table-cell">Materiais de limpeza</td>
-                        <td class="table-cell negative">-100.00</td>
-                        <td class="table-cell">2024-02-05</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Taxa</td>
-                        <td class="table-cell">Taxa de manutenção do sistema</td>
-                        <td class="table-cell negative">-30.00</td>
-                        <td class="table-cell">2024-02-12</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Consulta inicial</td>
-                        <td class="table-cell positive">+150.00</td>
-                        <td class="table-cell">2024-02-20</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Aluguel</td>
-                        <td class="table-cell">Aluguel do espaço</td>
-                        <td class="table-cell negative">-1200.00</td>
-                        <td class="table-cell">2024-02-28</td>
-                    </tr>
+            <h2>Fluxo de caixa</h2>
 
-                    <!-- Março -->
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Tratamento corporal completo</td>
-                        <td class="table-cell positive">+1300.00</td>
-                        <td class="table-cell">2024-03-01</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Compra</td>
-                        <td class="table-cell">Toalhas e lençóis descartáveis</td>
-                        <td class="table-cell negative">-150.00</td>
-                        <td class="table-cell">2024-03-10</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Taxa</td>
-                        <td class="table-cell">Taxa bancária</td>
-                        <td class="table-cell negative">-25.00</td>
-                        <td class="table-cell">2024-03-15</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Procedimento de rejuvenescimento</td>
-                        <td class="table-cell positive">+1100.00</td>
-                        <td class="table-cell">2024-03-20</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Aluguel</td>
-                        <td class="table-cell">Aluguel do espaço</td>
-                        <td class="table-cell negative">-1200.00</td>
-                        <td class="table-cell">2024-03-31</td>
-                    </tr>
+            <div class='filterContainer'>
+                <div class='fieldContent'>
+                    <label for='filterData'>Filtro de data</label>
+                    <select name='filterData' id='filterData'>
+                        <option value=''>Selecione</option>
+                        <option value='d'>Dia</option>
+                        <option value='w'>Semana</option>
+                        <option value='m'>Mês</option>
+                        <option value='y'>Ano</option>
+                    </select>
+                </div>
+                <div class='fieldContent'>
+                    <label for='filterType'>Filtro de tipo</label>
+                    <select name='filterType' id='filterType'>
+                        <option value=''>Selecione</option>
+                        <option value='r'>Aluguel</option>
+                        <option value='b'>Compra</option>
+                        <option value='t'>Taxa</option>
+                        <option value='s'>Venda</option>
+                    </select>
+                </div>
+                <div class='fieldContent'>
+                    <label for='filterOrdem'>Ordenar por</label>
+                    <select name='filterOrdem' id='filterOrdem'>
+                        <option value=''>Selecione</option>
+                        <option value='d'>Decrescente</option>
+                        <option value='c'>Crescente</option>
+                    </select>
+                </div>
+            </div>
 
-                    <!-- Abril -->
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Sessão de massagem relaxante</td>
-                        <td class="table-cell positive">+750.00</td>
-                        <td class="table-cell">2024-04-02</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Compra</td>
-                        <td class="table-cell">Óleos essenciais</td>
-                        <td class="table-cell negative">-200.00</td>
-                        <td class="table-cell">2024-04-08</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Taxa</td>
-                        <td class="table-cell">Taxa de manutenção de software</td>
-                        <td class="table-cell negative">-30.00</td>
-                        <td class="table-cell">2024-04-15</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Pacote de depilação a laser</td>
-                        <td class="table-cell positive">+800.00</td>
-                        <td class="table-cell">2024-04-22</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Aluguel</td>
-                        <td class="table-cell">Aluguel do espaço</td>
-                        <td class="table-cell negative">-1200.00</td>
-                        <td class="table-cell">2024-04-30</td>
-                    </tr>
-
-                    <!-- Maio -->
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Tratamento antienvelhecimento</td>
-                        <td class="table-cell positive">+1400.00</td>
-                        <td class="table-cell">2024-05-01</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Compra</td>
-                        <td class="table-cell">Equipamentos de higienização</td>
-                        <td class="table-cell negative">-500.00</td>
-                        <td class="table-cell">2024-05-08</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Taxa</td>
-                        <td class="table-cell">Taxa de transferência</td>
-                        <td class="table-cell negative">-20.00</td>
-                        <td class="table-cell">2024-05-15</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Venda</td>
-                        <td class="table-cell">Pacote de tratamento capilar</td>
-                        <td class="table-cell positive">+600.00</td>
-                        <td class="table-cell">2024-05-20</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-cell">Aluguel</td>
-                        <td class="table-cell">Aluguel do espaço</td>
-                        <td class="table-cell negative">-1200.00</td>
-                        <td class="table-cell">2024-05-31</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="tableContent">
+                <table class="finance-table">
+                    <thead>
+                        <tr class="table-header">
+                            <th class="table-header-cell">Tipo:</th>
+                            <th class="table-header-cell">Descrição:</th>
+                            <th class="table-header-cell">Movimentação:</th>
+                            <th class="table-header-cell">Data:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Janeiro -->
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Limpeza de pele</td>
+                            <td class="table-cell positive">+600.00</td>
+                            <td class="table-cell">2024-01-05</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Compra</td>
+                            <td class="table-cell">Produtos para tratamentos faciais</td>
+                            <td class="table-cell negative">-300.00</td>
+                            <td class="table-cell">2024-01-12</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Taxa</td>
+                            <td class="table-cell">Taxa de transação bancária</td>
+                            <td class="table-cell negative">-20.00</td>
+                            <td class="table-cell">2024-01-15</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Aluguel</td>
+                            <td class="table-cell">Aluguel do espaço</td>
+                            <td class="table-cell negative">-1200.00</td>
+                            <td class="table-cell">2024-01-20</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Massagem terapêutica</td>
+                            <td class="table-cell positive">+900.00</td>
+                            <td class="table-cell">2024-01-25</td>
+                        </tr>
+    
+                        <!-- Fevereiro -->
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Procedimento de depilação</td>
+                            <td class="table-cell positive">+400.00</td>
+                            <td class="table-cell">2024-02-02</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Compra</td>
+                            <td class="table-cell">Materiais de limpeza</td>
+                            <td class="table-cell negative">-100.00</td>
+                            <td class="table-cell">2024-02-05</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Taxa</td>
+                            <td class="table-cell">Taxa de manutenção do sistema</td>
+                            <td class="table-cell negative">-30.00</td>
+                            <td class="table-cell">2024-02-12</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Consulta inicial</td>
+                            <td class="table-cell positive">+150.00</td>
+                            <td class="table-cell">2024-02-20</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Aluguel</td>
+                            <td class="table-cell">Aluguel do espaço</td>
+                            <td class="table-cell negative">-1200.00</td>
+                            <td class="table-cell">2024-02-28</td>
+                        </tr>
+    
+                        <!-- Março -->
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Tratamento corporal completo</td>
+                            <td class="table-cell positive">+1300.00</td>
+                            <td class="table-cell">2024-03-01</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Compra</td>
+                            <td class="table-cell">Toalhas e lençóis descartáveis</td>
+                            <td class="table-cell negative">-150.00</td>
+                            <td class="table-cell">2024-03-10</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Taxa</td>
+                            <td class="table-cell">Taxa bancária</td>
+                            <td class="table-cell negative">-25.00</td>
+                            <td class="table-cell">2024-03-15</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Procedimento de rejuvenescimento</td>
+                            <td class="table-cell positive">+1100.00</td>
+                            <td class="table-cell">2024-03-20</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Aluguel</td>
+                            <td class="table-cell">Aluguel do espaço</td>
+                            <td class="table-cell negative">-1200.00</td>
+                            <td class="table-cell">2024-03-31</td>
+                        </tr>
+    
+                        <!-- Abril -->
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Sessão de massagem relaxante</td>
+                            <td class="table-cell positive">+750.00</td>
+                            <td class="table-cell">2024-04-02</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Compra</td>
+                            <td class="table-cell">Óleos essenciais</td>
+                            <td class="table-cell negative">-200.00</td>
+                            <td class="table-cell">2024-04-08</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Taxa</td>
+                            <td class="table-cell">Taxa de manutenção de software</td>
+                            <td class="table-cell negative">-30.00</td>
+                            <td class="table-cell">2024-04-15</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Pacote de depilação a laser</td>
+                            <td class="table-cell positive">+800.00</td>
+                            <td class="table-cell">2024-04-22</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Aluguel</td>
+                            <td class="table-cell">Aluguel do espaço</td>
+                            <td class="table-cell negative">-1200.00</td>
+                            <td class="table-cell">2024-04-30</td>
+                        </tr>
+    
+                        <!-- Maio -->
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Tratamento antienvelhecimento</td>
+                            <td class="table-cell positive">+1400.00</td>
+                            <td class="table-cell">2024-05-01</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Compra</td>
+                            <td class="table-cell">Equipamentos de higienização</td>
+                            <td class="table-cell negative">-500.00</td>
+                            <td class="table-cell">2024-05-08</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Taxa</td>
+                            <td class="table-cell">Taxa de transferência</td>
+                            <td class="table-cell negative">-20.00</td>
+                            <td class="table-cell">2024-05-15</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Venda</td>
+                            <td class="table-cell">Pacote de tratamento capilar</td>
+                            <td class="table-cell positive">+600.00</td>
+                            <td class="table-cell">2024-05-20</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-cell">Aluguel</td>
+                            <td class="table-cell">Aluguel do espaço</td>
+                            <td class="table-cell negative">-1200.00</td>
+                            <td class="table-cell">2024-05-31</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </main>
 
 

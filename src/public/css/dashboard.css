@@ -130,16 +130,65 @@
     }
 }
 
-/* Estilo da tabela */
-.finance-table {
+.iMain h2 {
     width: 80%;
+    margin: 0 auto;
+    font-size: 2.5rem;
+}
+
+/* Estilo filter */
+.filterContainer {
+    width: 80%;
+    display: flex;
+    margin: 2rem auto 0;
+
+    .fieldContent {
+        display: flex;
+        flex-flow: column;
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            color: #333;
+            appearance: none;
+            cursor: pointer;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.gif');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 30px;
+        }
+    }
+
+    .fieldContent + .fieldContent {
+        margin-left: 1rem;
+    }
+}
+
+/* Estilo da tabela */
+.tableContent {
+    width: 80%;
+    height: 600px;
+    overflow: hidden;
     margin: 20px auto;
+    border-radius: 8px;
+}
+
+.finance-table {
+    width: 100%;
+    height: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
 }
 
 /* Cabeçalho da tabela */
@@ -156,6 +205,12 @@
 }
 
 /* Corpo da tabela */
+
+.finance-table tbody {
+    height: 100%;
+    overflow-y: auto;
+}
+
 .table-row:nth-child(even) {
     background-color: #f2f2f2;
 }
