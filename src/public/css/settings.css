@@ -1,0 +1,143 @@
+.iMain {
+    .cards {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 20px;
+
+        .card {
+            box-shadow: 5px 5px 10px 4px rgba(0, 0, 0, .05);
+            position: relative;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+
+
+            .form-register {
+                max-width: 380px;
+                padding: 15px 35px 45px;
+                margin: 0 auto;
+                background: var(--white);
+
+                .form-register-heading {
+                    margin-bottom: 30px;
+                }
+
+                .form-control {
+                    position: relative;
+                    font-size: 16px;
+                    height: auto;
+                    padding: 10px;
+                    box-sizing: border-box;
+                }
+
+                input {
+                    border-radius: 6px;
+                    width: 100%;
+                    border: .009px solid var(--black2);
+                    outline: none;
+                }
+
+                input[type="text"] {
+                    margin-bottom: 30px;
+                }
+
+                input[type="password"] {
+                    margin-bottom: 30px;
+                }
+
+                .button {
+                    width: 100%;
+                    padding: 7px 15px;
+                    height: 45px;
+                    font-weight: 600;
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    letter-spacing: 2.5px;
+                    font-weight: 500;
+                    color: var(--black);
+                    background: var(--white);
+                    border: none;
+                    border-radius: 8px;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, .09);
+                    transition: all .3s ease 0s;
+                    cursor: pointer;
+                    outline: none;
+
+                    &:hover {
+                        background: var(--primary-color);
+                        color: var(--white);
+                    }
+                }
+
+
+
+            }
+        }
+    }
+
+    .details {
+        display: block !important;
+
+        .cardHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            h2 {
+                font-weight: 600;
+                color: var(--primary-color);
+            }
+        }
+
+        .users {
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 10px;
+
+                thead {
+                    td {
+                        font-weight: 600;
+                    }
+                }
+
+                tr {
+                    color: var(--black1);
+                    border-bottom: 1px solid rgba(0, 0, 0, .1);
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    td {
+                        padding: 10px;
+
+                        &:last-child {
+                            text-align: end;
+                        }
+
+                        &:nth-child(2) {
+                            text-align: end;
+                        }
+
+                        &:nth-child(3) {
+                            text-align: center;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        &:hover {
+                            background: var(--primary-color);
+                            color: var(--white);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

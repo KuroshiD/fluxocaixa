@@ -1,5 +1,11 @@
 :root {
-    --colorPrimary: #0ea2dd;
-    --colorTextPrimary: #F9F9F9;
-    --colorTextSecondary: #d6d6d6;
+    --primary-color: #287bff;
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black: #000;
+    --black1: #222;
+    --black2: #333;
+    --sucess: #008000;
+    --danger: #f00;
+    --shadow: rgba(0, 0, 0, .08)
 }

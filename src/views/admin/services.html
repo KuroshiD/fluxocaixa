@@ -23,9 +23,9 @@
             <nav>
 
                 <ul class='list'>
-                    <li><a class='activeBorder' href='/admin'><ion-icon name="home-outline"></ion-icon> Dashboard</a></li>
+                    <li><a href='/admin'><ion-icon name="home-outline"></ion-icon> Dashboard</a></li>
                     <li><a href='/admin/home'><ion-icon name="wallet-outline"></ion-icon> Fluxo de Caixa</a></li>
-                    <li><a href='/admin/services'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
+                    <li><a class='activeBorder' href='/admin/services'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
                     <li><a href='/admin/relatorios'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios Financeiros</a></li>
                     <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
                     <li><a href='/admin/settings'><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
@@ -38,35 +38,16 @@
         </div>
 
         <main class='iMain'>
-            <h1>Bem-vindo, Jefferson</h1>
-            <div class="upper-cards">
-                <div class="card receita">
-                    <span>Receita: R$ 0.00</span>
-                </div>
-                <div class="card despesa">
-                    <span>Despesa: R$ 0.00</span>
-                </div>
-                <div class="card resultado">
-                    <span>Resultado: R$ 0.00</span>
-                </div>
-                <div class="card saldo">
-                    <span>Saldo: R$ 0.00</span>
-                </div>
-            </div>
-            <div class="chart">
-                <canvas id="chart"></canvas>
-            </div>
+            
         </main>
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/static/js/apiUtils.js"></script>
     <script src="/static/js/utils.js"></script>
     <script src="/static/js/menu.js"></script>
-    <script src="/static/js/home.js"></script>
 
 </body>
 </html>

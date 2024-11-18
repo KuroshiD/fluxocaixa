@@ -27,11 +27,10 @@
                     <li><a href='/admin'><ion-icon name="home-outline"></ion-icon> Dashboard</a></li>
                     <li><a class='activeBorder' href='/admin/home'><ion-icon name="wallet-outline"></ion-icon> Fluxo de
                             Caixa</a></li>
-                    <li><a href='#'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
-                    <li><a href='#'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios Financeiros</a></li>
-                    <li><a href='#'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
-                    <li><a href='#'><ion-icon name="notifications-outline"></ion-icon> Notificações</a></li>
-                    <li><a href='#'><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
+                    <li><a href='/admin/services'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
+                    <li><a href='/admin/relatorios'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios Financeiros</a></li>
+                    <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
+                    <li><a href='/admin/settings'><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
                 </ul>
 
             </nav>
@@ -81,170 +80,14 @@
                         <tr class="table-header">
                             <th class="table-header-cell">Tipo:</th>
                             <th class="table-header-cell">Descrição:</th>
+                            <th class="table-header-cell">Produto:</th>
                             <th class="table-header-cell">Movimentação:</th>
                             <th class="table-header-cell">Data:</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- Janeiro -->
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Limpeza de pele</td>
-                            <td class="table-cell positive">+600.00</td>
-                            <td class="table-cell">2024-01-05</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Compra</td>
-                            <td class="table-cell">Produtos para tratamentos faciais</td>
-                            <td class="table-cell negative">-300.00</td>
-                            <td class="table-cell">2024-01-12</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Taxa</td>
-                            <td class="table-cell">Taxa de transação bancária</td>
-                            <td class="table-cell negative">-20.00</td>
-                            <td class="table-cell">2024-01-15</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Aluguel</td>
-                            <td class="table-cell">Aluguel do espaço</td>
-                            <td class="table-cell negative">-1200.00</td>
-                            <td class="table-cell">2024-01-20</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Massagem terapêutica</td>
-                            <td class="table-cell positive">+900.00</td>
-                            <td class="table-cell">2024-01-25</td>
-                        </tr>
-    
-                        <!-- Fevereiro -->
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Procedimento de depilação</td>
-                            <td class="table-cell positive">+400.00</td>
-                            <td class="table-cell">2024-02-02</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Compra</td>
-                            <td class="table-cell">Materiais de limpeza</td>
-                            <td class="table-cell negative">-100.00</td>
-                            <td class="table-cell">2024-02-05</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Taxa</td>
-                            <td class="table-cell">Taxa de manutenção do sistema</td>
-                            <td class="table-cell negative">-30.00</td>
-                            <td class="table-cell">2024-02-12</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Consulta inicial</td>
-                            <td class="table-cell positive">+150.00</td>
-                            <td class="table-cell">2024-02-20</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Aluguel</td>
-                            <td class="table-cell">Aluguel do espaço</td>
-                            <td class="table-cell negative">-1200.00</td>
-                            <td class="table-cell">2024-02-28</td>
-                        </tr>
-    
-                        <!-- Março -->
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Tratamento corporal completo</td>
-                            <td class="table-cell positive">+1300.00</td>
-                            <td class="table-cell">2024-03-01</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Compra</td>
-                            <td class="table-cell">Toalhas e lençóis descartáveis</td>
-                            <td class="table-cell negative">-150.00</td>
-                            <td class="table-cell">2024-03-10</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Taxa</td>
-                            <td class="table-cell">Taxa bancária</td>
-                            <td class="table-cell negative">-25.00</td>
-                            <td class="table-cell">2024-03-15</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Procedimento de rejuvenescimento</td>
-                            <td class="table-cell positive">+1100.00</td>
-                            <td class="table-cell">2024-03-20</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Aluguel</td>
-                            <td class="table-cell">Aluguel do espaço</td>
-                            <td class="table-cell negative">-1200.00</td>
-                            <td class="table-cell">2024-03-31</td>
-                        </tr>
-    
-                        <!-- Abril -->
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Sessão de massagem relaxante</td>
-                            <td class="table-cell positive">+750.00</td>
-                            <td class="table-cell">2024-04-02</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Compra</td>
-                            <td class="table-cell">Óleos essenciais</td>
-                            <td class="table-cell negative">-200.00</td>
-                            <td class="table-cell">2024-04-08</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Taxa</td>
-                            <td class="table-cell">Taxa de manutenção de software</td>
-                            <td class="table-cell negative">-30.00</td>
-                            <td class="table-cell">2024-04-15</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Pacote de depilação a laser</td>
-                            <td class="table-cell positive">+800.00</td>
-                            <td class="table-cell">2024-04-22</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Aluguel</td>
-                            <td class="table-cell">Aluguel do espaço</td>
-                            <td class="table-cell negative">-1200.00</td>
-                            <td class="table-cell">2024-04-30</td>
-                        </tr>
-    
-                        <!-- Maio -->
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Tratamento antienvelhecimento</td>
-                            <td class="table-cell positive">+1400.00</td>
-                            <td class="table-cell">2024-05-01</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Compra</td>
-                            <td class="table-cell">Equipamentos de higienização</td>
-                            <td class="table-cell negative">-500.00</td>
-                            <td class="table-cell">2024-05-08</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Taxa</td>
-                            <td class="table-cell">Taxa de transferência</td>
-                            <td class="table-cell negative">-20.00</td>
-                            <td class="table-cell">2024-05-15</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Venda</td>
-                            <td class="table-cell">Pacote de tratamento capilar</td>
-                            <td class="table-cell positive">+600.00</td>
-                            <td class="table-cell">2024-05-20</td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-cell">Aluguel</td>
-                            <td class="table-cell">Aluguel do espaço</td>
-                            <td class="table-cell negative">-1200.00</td>
-                            <td class="table-cell">2024-05-31</td>
-                        </tr>
+                    <tbody class="tabela-op">
+                        
+                       
                     </tbody>
                 </table>
             </div>
@@ -253,11 +96,12 @@
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/static/js/apiUtils.js"></script>
     <script src="/static/js/utils.js"></script>
     <script src="/static/js/menu.js"></script>
+    <script src="/static/js/operationTable.js"></script>
 
 </body>
 

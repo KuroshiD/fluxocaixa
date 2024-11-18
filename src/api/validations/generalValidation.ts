@@ -4,11 +4,11 @@ export const mandatoryFieldsValidation = (obj: any, mandatoryFields: string[]): 
     const missingFields: string[] = []
 
     mandatoryFields.forEach(field => {
-        if(obj[field] === null || obj[field] === undefined)
+        if (obj[field] === null || obj[field] === undefined)
             missingFields.push(field)
     })
 
-    if(missingFields.length) 
+    if (missingFields.length)
         return {
             isValid: false,
             missingFields: missingFields
@@ -17,4 +17,9 @@ export const mandatoryFieldsValidation = (obj: any, mandatoryFields: string[]): 
     return {
         isValid: true,
     }
+}
+
+export const validateOperationType = (type: string): boolean => {
+    const validTypes = ['venda', 'compra', 'taxa', 'aluguel']
+    return validTypes.includes(type)
 }
