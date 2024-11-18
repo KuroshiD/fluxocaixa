@@ -80,7 +80,6 @@
 
     .details {
         display: block !important;
-
         .cardHeader {
             display: flex;
             justify-content: space-between;
@@ -93,8 +92,13 @@
         }
 
         .users {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
             table {
-                width: 100%;
+                width: 40%;
                 border-collapse: collapse;
                 margin-top: 10px;
 
@@ -140,4 +144,8 @@
             }
         }
     }
+}
+
+.trashcan {
+    cursor: pointer;
 }
