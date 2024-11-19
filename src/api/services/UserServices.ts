@@ -6,10 +6,6 @@ import { User } from "../models/User"
 import { UserCreationAttributes, UserLoginAttributes } from "../../types/userRequestData"
 import { signJWT } from "../utils/jwt"
 
-
-
-
-
 const UserServices = {
     register: async (data: UserCreationAttributes): Promise<ServiceReturn> => {
         const requiredFields = ["username", "password", "email", "role"]
@@ -40,7 +36,6 @@ const UserServices = {
                 message: "User creation failed",
                 status: 500,
             }
-
 
         return {
             data: {
@@ -79,9 +74,6 @@ const UserServices = {
                 status: 401,
             }
 
-
-
-
         return {
             data: {
                 id: user.id,
@@ -92,8 +84,64 @@ const UserServices = {
             message: "Login Successful",
             status: 200
         }
-    }
+    },
 
+    delete: async (id: string): Promise<ServiceReturn> => {
+        const user = await User.findByPk(id);
+
+        if (!user) {
+            return {
+                message: "User not found",
+                status: 404,
+            };
+        }
+
+        await user.destroy();
+
+        return {
+            message: "User deleted successfully",
+            status: 200,
+        };
+    },
+
+    update: async (id: string, data: { atualPassword: string, newUsername?: string, newPassword: string }): Promise<ServiceReturn> => {
+        const user = await User.scope('withPassword').findByPk(id);
+
+        if (!user) {
+            return {
+                message: "User not found",
+                status: 404,
+            };
+        }
+
+        const isPasswordValid = await bcrypt.compare(data.atualPassword, user.password);
+        if (!isPasswordValid) {
+            return {
+                message: "Current password is incorrect",
+                status: 401,
+            };
+        }
+
+        if (data.newUsername) {
+            user.username = data.newUsername;
+        }
+
+        if (data.newPassword) {
+            user.password = await bcrypt.hash(data.newPassword, 10);
+        }
+
+        await user.save();
+
+        return {
+            message: "User updated successfully",
+            status: 200,
+            data: {
+                id: user.id,
+                username: user.username,
+                role: user.role
+            }
+        };
+    }
 }
 
 export default UserServices

@@ -5,8 +5,11 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
+    <link rel="stylesheet" href="/static/css/var.css">
     <link rel='stylesheet' href='/static/css/styleGlobal.css'>
     <link rel='stylesheet' href='/static/css/dashboard.css'>
+    <link rel='stylesheet' href='/static/css/services.css'>
+
 
 
     <title>Dashboard</title>
@@ -38,7 +41,38 @@
         </div>
 
         <main class='iMain'>
-            
+            <section class='product-form'>
+                <h2>Criar Produto</h2>
+                <form id='createProductForm'>
+                    <label for='productName'>Nome:</label>
+                    <input type='text' id='productName' name='productName' required>
+
+                    <label for='productPrice'>Preço:</label>
+                    <input type='number' id='productPrice' name='productPrice' required>
+
+                    <label for='productDescription'>Descrição:</label>
+                    <textarea id='productDescription' name='productDescription' required></textarea>
+
+                    <button type='submit'>Criar Produto</button>
+                </form>
+            </section>
+
+            <section class='product-list'>
+                <h2>Lista de Produtos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Descrição</th>
+                            <th>Estoque</th>
+                        </tr>
+                    </thead>
+                    <tbody id='productTableBody'>
+                        <!-- Produtos serão inseridos aqui -->
+                    </tbody>
+                </table>
+            </section>
         </main>
 
     </div>

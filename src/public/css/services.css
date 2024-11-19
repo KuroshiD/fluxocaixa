@@ -1,0 +1,88 @@
+.product-form, .product-list {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px 4px rgba(0, 0, 0, .05);
+}
+
+.product-form h2, .product-list h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.product-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.product-form input,
+.product-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borda preta inicial, bem opaca */
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.product-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+.product-form button {
+    width: 100%;
+    padding: 7px 15px;
+    height: 45px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: var(--black);
+    background: var(--white);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .09);
+    transition: all .3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.product-form button:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-list th,
+.product-list td {
+    padding: 10px;
+    border: 1px solid var(--black2);
+    text-align: left;
+}
+
+.product-list th {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.product-list tbody tr:nth-child(even) {
+    background-color: var(--gray);
+}
+
+.product-list tbody tr:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}

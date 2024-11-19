@@ -47,14 +47,17 @@
         <main class='iMain'>
             <div class="cards">
                 <div class="card">
-                    <form class="form-register">
+                    <form class="form-register register">
                         <h2 class="form-register-heading">
                             Adicione um admin
                         </h2>
                         <input type="text" class="form-control register-username" name="username" placeholder="username"
                             required="" autofocus="">
+                        <input type="text" class="form-control register-email" name="email" placeholder="email"
+                            required="" autofocus="">
                         <input type="password" class="form-control register-password" name="password"
                             placeholder="senha" required="">
+
                         <button class="button register-submit" type="submit">Aplicar</button>
                     </form>
                 </div>
@@ -63,12 +66,14 @@
                         <h2 class="form-register-heading">
                             Atualize seu usuario aqui
                         </h2>
-                        <input type="password" class="form-control edit-password" name="atualPass" placeholder="senha atual"
-                            required="">
-                        <input type="text" class="form-control edit-newusername" name="newUsername" placeholder="Novo nome de usuario(opcional)">
-                        <input type="password" class="form-control edit-newpassword" name="newPass" placeholder="nova senha">
-                        <input type="password" class="form-control edit-submit edit-confirmnewpassword" name="confirmNewPass"
-                            placeholder="confirmar nova senha" required="">
+                        <input type="password" class="form-control edit-password" name="atualPass"
+                            placeholder="senha atual" required="">
+                        <input type="text" class="form-control edit-newusername" name="newUsername"
+                            placeholder="Novo nome de usuario(opcional)">
+                        <input type="password" class="form-control edit-newpassword" name="newPass"
+                            placeholder="nova senha">
+                        <input type="password" class="form-control edit-submit edit-confirmnewpassword"
+                            name="confirmNewPass" placeholder="confirmar nova senha" required="">
                         <button class="button" type="submit">Alterar senha</button>
                     </form>
                 </div>
@@ -80,7 +85,7 @@
                             Admins
                         </h2>
                     </div>
-                
+
                     <table>
                         <thead>
                             <tr>
@@ -107,7 +112,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/static/js/apiUtils.js"></script>
     <script src="/static/js/utils.js"></script>
-    <script src="/static/js/menu.js"></script>
+    <script src="/static/js/settings.js"></script>
 
 </body>
 

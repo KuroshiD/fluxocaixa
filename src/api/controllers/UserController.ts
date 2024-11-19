@@ -36,6 +36,31 @@ const UserController = {
         const login = await UserService.login(data);
 
         res.status(login.status).json(login);
+    }, 
+
+    deleteUser: async(req: Request, res: Response) => {
+        const id: string = req.body.id;        
+        const deleted = await UserService.delete(id);
+
+        res.status(deleted.status).json(deleted);
+    }, 
+
+    updateUser: async(req: Request, res: Response) => {
+        const { atualPassword, newUsername, newPassword, confirmNewPassword } = req.body;
+
+        if (newPassword !== confirmNewPassword) {
+            return res.status(400).json({ message: "New passwords do not match" });
+        }
+
+        const updateData = {
+            atualPassword,
+            newUsername,
+            newPassword
+        };
+
+        const updatedUser = await UserService.update(req.body.id, updateData);
+
+        res.status(updatedUser.status).json(updatedUser);
     }
 }
 

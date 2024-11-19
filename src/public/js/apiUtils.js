@@ -85,8 +85,8 @@ const apiUtils = {
     patch: async (route, data, token = null) => 
         await makeRequest(route, 'PATCH', data, token),
     
-    delete: async (route, token = null) => 
-        await makeRequest(route, 'DELETE', null, token),
+    delete: async (route, data, token = null) => 
+        await makeRequest(route, 'DELETE', data, token),
     
     getBaseUrl
 };
