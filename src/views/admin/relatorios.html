@@ -5,8 +5,10 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
+    <link rel="stylesheet" href="/static/css/var.css">
     <link rel='stylesheet' href='/static/css/styleGlobal.css'>
     <link rel='stylesheet' href='/static/css/dashboard.css'>
+    <link rel='stylesheet' href='/static/css/relatorios.css'>
 
 
     <title>Dashboard</title>
@@ -38,6 +40,37 @@
         </div>
 
         <main class='iMain'>
+            <section class='filter-section'>
+                <h2>Filtrar Relatórios Financeiros</h2>
+                <form id='filterForm'>
+                    <label for='startDate'>Data Inicial:</label>
+                    <input type='date' id='startDate' name='startDate'>
+
+                    <label for='endDate'>Data Final:</label>
+                    <input type='date' id='endDate' name='endDate'>
+
+                    <button type='submit'>Filtrar</button>
+                </form>
+            </section>
+
+            <section class='report-list'>
+                <h2>Relatórios Financeiros</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Receita Total</th>
+                            <th>Despesa Total</th>
+                            <th>Resultado Líquido</th>
+                            <th>Saldo Atual</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id='reportTableBody'>
+                        <!-- Relatórios serão inseridos aqui -->
+                    </tbody>
+                </table>
+            </section>
         </main>
 
     </div>
@@ -47,6 +80,7 @@
     <script src="/static/js/apiUtils.js"></script>
     <script src="/static/js/utils.js"></script>
     <script src="/static/js/menu.js"></script>
+    <script src="/static/js/relatorios.js"></script>
 
 </body>
 </html>

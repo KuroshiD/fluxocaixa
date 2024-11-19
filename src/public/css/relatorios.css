@@ -1,0 +1,84 @@
+
+.filter-section, .report-list {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px 4px rgba(0, 0, 0, .05);
+}
+
+.filter-section h2, .report-list h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.filter-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-section label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filter-section input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.filter-section button {
+    width: 100%;
+    padding: 7px 15px;
+    height: 45px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: var(--black);
+    background: var(--white);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .09);
+    transition: all .3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.filter-section button:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.report-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.report-list th,
+.report-list td {
+    padding: 10px;
+    border: 1px solid var(--black2);
+    text-align: left;
+}
+
+.report-list th {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.report-list tbody tr:nth-child(even) {
+    background-color: var(--gray);
+}
+
+.report-list tbody tr:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
