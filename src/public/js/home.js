@@ -104,5 +104,18 @@ const createChart = async () => {
     });
 };
 
-createChart()
-buildHome()
+const setCardColors = () => {
+    const cards = document.querySelectorAll('.upper-cards .card');
+    cards.forEach(card => {
+        const valueText = card.textContent.replace('R$', '').replace(/[^\d.-]/g, '').trim();
+
+        if (valueText.startsWith('-')) {
+            card.classList.add('negative');
+        } else {
+            card.classList.add('positive');
+        }
+    });
+};
+
+buildHome().then(setCardColors);
+createChart();

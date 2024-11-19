@@ -9,6 +9,8 @@
     <link rel='stylesheet' href='/static/css/styleGlobal.css'>
     <link rel='stylesheet' href='/static/css/dashboard.css'>
     <link rel='stylesheet' href='/static/css/services.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 
 
@@ -42,7 +44,7 @@
 
         <main class='iMain'>
             <section class='product-form'>
-                <h2>Criar Produto</h2>
+                <h2 style="color: #333; font-weight: 0;">Criar Produto</h2>
                 <form id='createProductForm'>
                     <label for='productName'>Nome:</label>
                     <input type='text' id='productName' name='productName' required>
@@ -58,7 +60,7 @@
             </section>
 
             <section class='product-list'>
-                <h2>Lista de Produtos</h2>
+                <h2 style="color: #333; font-weight: 0;">Lista de Produtos</h2>
                 <table>
                     <thead>
                         <tr>
@@ -66,38 +68,23 @@
                             <th>Preço</th>
                             <th>Descrição</th>
                             <th>Estoque</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody id='productTableBody'>
-                        <tr>
-                            <td>Limpeza de Pele</td>
-                            <td>R$ 150,00</td>
-                            <td>Procedimento de limpeza profunda da pele.</td>
-                            <td>20</td>
-                        </tr>
-                        <tr>
-                            <td>Massagem Relaxante</td>
-                            <td>R$ 200,00</td>
-                            <td>Massagem para relaxamento muscular.</td>
-                            <td>15</td>
-                        </tr>
-                        <tr>
-                            <td>Tratamento Facial</td>
-                            <td>R$ 250,00</td>
-                            <td>Tratamento para rejuvenescimento facial.</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>Depilação a Laser</td>
-                            <td>R$ 300,00</td>
-                            <td>Procedimento de depilação definitiva.</td>
-                            <td>5</td>
-                        </tr>
                     </tbody>
                 </table>
             </section>
         </main>
 
+
+        <footer>
+            <div class="logo">
+                <img src="/static/images/pantheon.png" alt="Pantheon labs.">
+                Pantheon <em> Labs </em>
+            </div>
+            <div class="copyright">Todos os direitos reservados - 2024</div>
+        </footer>
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -105,6 +92,7 @@
     <script src="/static/js/apiUtils.js"></script>
     <script src="/static/js/utils.js"></script>
     <script src="/static/js/menu.js"></script>
+    <script src="/static/js/services.js"></script>  
 
 </body>
 </html>

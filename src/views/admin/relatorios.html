@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang='pt-br'>
+
 <head>
-    
+
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
@@ -14,8 +15,9 @@
     <title>Dashboard</title>
 
 </head>
+
 <body>
-    
+
     <div class='interface'>
 
         <div class='menuLateral'>
@@ -28,7 +30,8 @@
                     <li><a href='/admin'><ion-icon name="home-outline"></ion-icon> Dashboard</a></li>
                     <li><a href='/admin/home'><ion-icon name="wallet-outline"></ion-icon> Fluxo de Caixa</a></li>
                     <li><a href='/admin/services'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
-                    <li><a class='activeBorder' href='/admin/relatorios'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios Financeiros</a></li>
+                    <li><a class='activeBorder' href='/admin/relatorios'><ion-icon
+                                name="alert-circle-outline"></ion-icon> Relatórios Financeiros</a></li>
                     <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
                     <li><a href='/admin/settings'><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
                 </ul>
@@ -41,24 +44,30 @@
 
         <main class='iMain'>
             <section class='filter-section'>
-                <h2>Filtrar Relatórios Financeiros</h2>
+                <h2 style="color: #333; font-weight: 0;">Filtrar Relatórios Financeiros</h2>
                 <form id='filterForm'>
-                    <label for='startDate'>Data Inicial:</label>
-                    <input type='date' id='startDate' name='startDate'>
+                    <div class="inputWrapper">
+                        <label for='startDate'>Data Inicial:</label>
+                        <input type="text" id="startDate" name="startDate" placeholder="dd/mm/yyyy"
+                            pattern="\d{2}/\d{2}/\d{4}" maxlength="10" oninput="mask(this)">
+                    </div>
 
-                    <label for='endDate'>Data Final:</label>
-                    <input type='date' id='endDate' name='endDate'>
+                    <div class="inputWrapper">
+                        <label for='endDate'>Data Final:</label>
+                        <input type="text" id="endDate" name="startDate" placeholder="dd/mm/yyyy"
+                            pattern="\d{2}/\d{2}/\d{4}" maxlength="10" oninput="mask(this)">
+                    </div>
+
 
                     <button type='submit'>Filtrar</button>
                 </form>
             </section>
 
             <section class='report-list'>
-                <h2>Relatórios Financeiros</h2>
+                <h2 style="color: #333; font-weight: 0;">Relatórios Financeiros</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Receita Total</th>
                             <th>Despesa Total</th>
                             <th>Resultado Líquido</th>
@@ -81,6 +90,8 @@
     <script src="/static/js/utils.js"></script>
     <script src="/static/js/menu.js"></script>
     <script src="/static/js/relatorios.js"></script>
+    <script src="/static/js/relatorios.js"></script>
 
 </body>
+
 </html>

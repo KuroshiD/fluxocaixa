@@ -69,7 +69,6 @@
 .product-list th,
 .product-list td {
     padding: 10px;
-    border: 1px solid var(--black2);
     text-align: left;
 }
 
@@ -85,4 +84,9 @@
 .product-list tbody tr:hover {
     background-color: var(--primary-color);
     color: var(--white);
+}   
+
+.dinheiro {
+    white-space: nowrap;
 }
+

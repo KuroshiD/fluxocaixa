@@ -5,13 +5,13 @@
 }
 
 .interface .menuLateral {
-    width: 240px;
+    position: fixed;
+    width: 270px;
     height: 100vh;
     display: flex;
     padding: 50px 0;
     flex-flow: column;
     background-color: #0ea2dd;
-    border-radius: 0 25px 25px 0;
 
     .btnLogo {
         width: 60%;
@@ -39,24 +39,25 @@
             list-style: none;
         }
 
-        .list li + li {
+        .list li+li {
             margin-top: .5rem;
         }
 
         .list li a {
             position: relative;
             display: flex;
-            color: #d6d6d6;
+            color: #FFF;
             line-height: 50px;
             padding-left: 2.5rem;
-            align-items: center;     
+            align-items: center;
             letter-spacing: .2px;
             text-decoration: none;
             transition: all .3s ease-out;
+            font-weight: 500;
         }
 
         .list li a ion-icon {
-            margin-right: 5px;
+            margin-right: 10px;
         }
 
         .list li a:hover {
@@ -99,34 +100,85 @@
 
 }
 
-.interface main.iMain {
-    flex: 1;
-    padding: 50px;
+.interface {
+    display: flex;
+    flex-flow: column;
 
-    .upper-cards {
-        display: flex;
-        justify-content: space-between;
+    main.iMain {
+        width: calc(100vw - 270px);
+        padding: 30px 0;
+        margin-left: auto;
+        flex: 1;
 
-        .card {
-            width: 250px;
-            height: 150px;
-            border-radius: 10px;
-            box-shadow: 5px 5px 10px 4px rgba(0, 0, 0, .05);
+        h1 {
+            padding-left: 50px;
+            margin-bottom: 15px;
+        }
+
+        .upper-cards {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+            justify-content: space-between;
+            padding: 0 50px;
 
-            &:hover {
-                background: #0ea2dd;
-                color: white;
+            .card {
+                width: 250px;
+                height: 150px;
+                border-radius: 10px;
+                box-shadow: 5px 5px 10px 4px rgba(0, 0, 0, .05);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
             }
+
+            .card.positive {
+                color: green;
+            }
+
+            .card.negative {
+                color: red;
+            }
+        }
+
+        .chart {
+            width: 70%;
+            margin: 60px auto 0 auto;
         }
     }
 
-    .chart {
-        width: 70%;
-        margin: 60px auto 0 auto;
+    footer {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 30px 50px;
+        margin-left: 270px;
+        width: calc(100vw - 270px);
+        
+        .logo {
+            color: black;
+            font-size: 30px;
+            font-weight: 600;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            
+            img {
+                width: 60px;
+                margin-right: 10px;
+            }
+
+            em {
+                margin-left: 10px;
+                color: var(--primary-color);
+            }
+        }
+
+        .copyright {
+            color: black;
+            font-size: 14px;
+        }
     }
 }
 
@@ -168,7 +220,7 @@
         }
     }
 
-    .fieldContent + .fieldContent {
+    .fieldContent+.fieldContent {
         margin-left: 1rem;
     }
 }
@@ -226,7 +278,7 @@
 
 /* Movimentação positiva e negativa */
 .positive {
-    color: #2e7d32; 
+    color: #2e7d32;
     font-weight: bold;
 }
 
@@ -242,7 +294,3 @@
         font-size: 0.9em;
     }
 }
-
-
-
-

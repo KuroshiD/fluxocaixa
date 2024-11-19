@@ -76,6 +76,8 @@ const handleRegister = async (e) => {
     alert('User registered successfully');
 
     usernameField.value = emailField.value = passwordField.value = '';
+
+    buildAdminTable();
 }
 
 const updateUser = async (data, token) => {

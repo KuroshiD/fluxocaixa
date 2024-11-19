@@ -65,7 +65,6 @@
 .report-list th,
 .report-list td {
     padding: 10px;
-    border: 1px solid var(--black2);
     text-align: left;
 }
 
@@ -81,4 +80,21 @@
 .report-list tbody tr:hover {
     background-color: var(--primary-color);
     color: var(--white);
+}
+
+#filterForm {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    column-gap: 20px;
+
+    .inputWrapper {
+        input {
+            width: 100%;
+        }
+    }
+
+    button {
+        max-width: 50%;
+    }
 }
