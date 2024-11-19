@@ -20,9 +20,11 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
         const decoded = verifyJWT(token)
         const { userId } = decoded as TokenPayload
 
-        req.user = userId
+        (req as any).user = userId
         next()
     } catch (err) {
         return res.status(401).json({ error: 'invalid token'})
     }
 }
+
+export default auth

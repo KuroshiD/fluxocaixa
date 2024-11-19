@@ -226,12 +226,12 @@
 
 /* Movimentação positiva e negativa */
 .positive {
-    color: #2e7d32; /* Verde */
+    color: #2e7d32; 
     font-weight: bold;
 }
 
 .negative {
-    color: #d32f2f; /* Vermelho */
+    color: #d32f2f;
     font-weight: bold;
 }
 

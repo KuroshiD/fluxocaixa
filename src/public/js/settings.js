@@ -78,8 +78,8 @@ const handleRegister = async (e) => {
     usernameField.value = emailField.value = passwordField.value = '';
 }
 
-const updateUser = async (data) => {
-    const response = await apiUtils.put('/user/update', data);
+const updateUser = async (data, token) => {
+    const response = await apiUtils.put('/user/update', data, token);
     return response;
 };
 
@@ -96,12 +96,13 @@ const handleUpdate = async (e) => {
     }
 
     const data = {
-        currentPassword,
+        atualPassword: currentPassword,
         newUsername,
-        newPassword
+        newPassword, 
+        confirmNewPassword
     };
-
-    const response = await updateUser(data);
+    const token = getLocalStorage('token');
+    const response = await updateUser(data, token);
 
     if (!response.success) 
         return alert(response.data.message);

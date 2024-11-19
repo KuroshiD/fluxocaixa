@@ -47,19 +47,19 @@ const UserController = {
 
     updateUser: async(req: Request, res: Response) => {
         const { atualPassword, newUsername, newPassword, confirmNewPassword } = req.body;
-
+    
         if (newPassword !== confirmNewPassword) {
             return res.status(400).json({ message: "New passwords do not match" });
         }
-
+    
         const updateData = {
             atualPassword,
             newUsername,
             newPassword
         };
-
-        const updatedUser = await UserService.update(req.body.id, updateData);
-
+    
+        const updatedUser = await UserService.update((req as any).user, updateData);
+    
         res.status(updatedUser.status).json(updatedUser);
     }
 }

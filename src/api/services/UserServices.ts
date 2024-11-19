@@ -105,6 +105,17 @@ const UserServices = {
     },
 
     update: async (id: string, data: { atualPassword: string, newUsername?: string, newPassword: string }): Promise<ServiceReturn> => {
+
+        const requiredFields = ["atualPassword", "newPassword"]
+        const missingFields = mandatoryFieldsValidation(data, requiredFields)
+
+        if (!missingFields.isValid)
+            return {
+                data: missingFields.missingFields,
+                message: "Missing required fields",
+                status: 422
+            }
+
         const user = await User.scope('withPassword').findByPk(id);
 
         if (!user) {
