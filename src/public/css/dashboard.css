@@ -294,3 +294,52 @@
         font-size: 0.9em;
     }
 }
+
+.operation-form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.operation-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.operation-form .fieldContent {
+    margin-bottom: 15px;
+}
+
+.operation-form .fieldContent label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.operation-form .fieldContent input,
+.operation-form .fieldContent select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.operation-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0ea2dd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.operation-form button:hover {
+    background-color: #0995cd;
+}

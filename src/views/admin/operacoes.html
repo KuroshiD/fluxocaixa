@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+    
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    <link rel='stylesheet' href='/static/css/styleGlobal.css'>
+    <link rel='stylesheet' href='/static/css/dashboard.css'>
+    <link rel="stylesheet" href="/static/css/var.css">
+    <link rel="stylesheet" href="/static/css/services.css">
+
+    <title>Dashboard</title>
+
+</head>
+<body>
+    
+    <div class='interface'>
+
+        <div class='menuLateral'>
+
+            <button class='btnLogo'><img src='/static/images/logoBarao.png' alt='Logo da facul'></button>
+
+            <nav>
+
+                <ul class='list'>
+                    <li><a href='/admin'><ion-icon name="home-outline"></ion-icon>Dashboard</a></li>
+                    <li><a  class='activeBorder' href='/admin/operacoes'><ion-icon name="git-compare-outline"></ion-icon>Operações</a></li>
+                    <li><a href='/admin/home'><ion-icon name="wallet-outline"></ion-icon>Fluxo de Caixa</a></li>
+                    <li><a href='/admin/services'><ion-icon name="cube-outline"></ion-icon>Produtos e Serviços</a></li>
+                    <li><a href='/admin/relatorios'><ion-icon name="alert-circle-outline"></ion-icon>Relatórios Financeiros</a></li>
+                    <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
+                    <li><a href='/admin/settings'><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
+                </ul>
+
+            </nav>
+
+            <button class='btnOut'><ion-icon name="log-out-outline"></ion-icon> Sign out</button>
+
+        </div>
+
+        <main class='iMain'>
+           
+            <section class='operation-form'>
+                <h2 style="color: #333; font-weight: 0;">Registrar Operação</h2>
+                <form id='operationForm'>
+                    <div class='fieldContent'>
+                        <label for='operationDate'>Data:</label>
+                        <input type='text' id='operationDate' name='operationDate' placeholder="dd/mm/yyyy"
+                            pattern="\d{2}/\d{2}/\d{4}" maxlength="10" oninput="applyDateMask(this)" required value="">
+                    </div>
+                    <div class='fieldContent'>
+                        <label for='product'>Produto:</label>
+                        <select id='product' name='product' required>
+                            <option value=''>Selecione</option>
+                            <!-- Options should be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class='fieldContent'>
+                        <label for='description'>Descrição:</label>
+                        <input type='text' id='description' name='description' required disabled>
+                    </div>
+                    <div class='fieldContent'>
+                        <label for='operationType'>Tipo de operação:</label>
+                        <select id='operationType' name='operationType' required>
+                            <option value='' disabled selected>Selecione</option>
+                            <option value='aluguel'>Aluguel</option>
+                            <option value='compra'>Compra</option>
+                            <option value='taxa'>Taxa</option>
+                            <option value='venda'>Venda</option>
+                        </select>
+                    </div>
+                    <div class='fieldContent'>
+                        <label for='value'>Valor:</label>
+                        <input type='number' id='value' name='value' required disabled>
+                    </div>
+                    <div class='fieldContent'>
+                        <label for='currentQuantity'>Quantidade Atual:</label>
+                        <span id='currentQuantity'></span>
+                    </div>
+                    <div class='fieldContent'>
+                        <label for='quantity'>Quantidade:</label>
+                        <input type='number' id='quantity' name='quantity' required>
+                    </div>
+                    <button type='submit'>Registrar</button>
+                </form>
+            </section>
+           
+        </main>
+
+        <footer>
+            <div class="logo">
+                <img src="/static/images/pantheon.png" alt="Pantheon labs.">
+                Pantheon <em> Labs </em>
+            </div>
+            <div class="copyright">Todos os direitos reservados - 2024</div>
+        </footer>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/static/js/apiUtils.js"></script>
+    <script src="/static/js/utils.js"></script>
+    <script src="/static/js/menu.js"></script>
+    <script src="/static/js/operacoes.js"></script>
+    <script>
+        function applyDateMask(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 2) value = value.slice(0, 2) + '/' + value.slice(2);
+            if (value.length > 5) value = value.slice(0, 5) + '/' + value.slice(5);
+            input.value = value;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toLocaleDateString('pt-BR');
+            document.getElementById('operationDate').value = today;
+        });
+    </script>
+
+</body>
+</html>
