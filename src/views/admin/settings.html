@@ -46,7 +46,7 @@
 
         <main class='iMain'>
             <div class="cards">
-                <div class="card">
+                <div class="card" id="cardAdd">
                     <form class="form-register register">
                         <h2 class="form-register-heading">
                             Adicione um admin
@@ -60,8 +60,9 @@
 
                         <button class="button register-submit" type="submit">Aplicar</button>
                     </form>
+                    <p class='linkCard'>Atualize seu cadastro <a class="updateCad">clicando aqui</a></p>
                 </div>
-                <div class="card">
+                <div class="card cardNone" id="cardUpdate">
                     <form class="form-register att">
                         <h2 class="form-register-heading">
                             Atualize seu usuario aqui
@@ -76,6 +77,7 @@
                             name="confirmNewPass" placeholder="confirmar nova senha" required="">
                         <button class="button" type="submit">Alterar senha</button>
                     </form>
+                    <p class='linkCard'>Adicione um admin <a class="addCad">clicando aqui</a></p>
                 </div>
             </div>
             <div class="details">

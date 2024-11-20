@@ -7,6 +7,9 @@ const currentPasswordField = document.querySelector('.edit-password');
 const newUsernameField = document.querySelector('.edit-newusername');
 const newPasswordField = document.querySelector('.edit-newpassword');
 const confirmNewPasswordField = document.querySelector('.edit-confirmnewpassword');
+const updateCad = document.querySelector('.updateCad');
+const addCad = document.querySelector('.addCad');
+
 
 const adminTableBody = document.querySelector('[data-info="admin-table"]');
 
@@ -113,6 +116,20 @@ const handleUpdate = async (e) => {
 
     currentPasswordField.value = newUsernameField.value = newPasswordField.value = confirmNewPasswordField.value = '';
 }
+
+updateCad.addEventListener('click', () => {
+    const addCard = document.querySelector('#cardAdd');
+    const updateCard = document.querySelector('#cardUpdate');
+    addCard.classList.add('cardNone');
+    updateCard.classList.remove('cardNone');
+})
+
+addCad.addEventListener('click', () => {
+    const addCard = document.querySelector('#cardAdd');
+    const updateCard = document.querySelector('#cardUpdate');
+    addCard.classList.remove('cardNone');
+    updateCard.classList.add('cardNone');
+})
 
 updateForm.addEventListener("submit", handleUpdate);
 register.addEventListener("submit", handleRegister);

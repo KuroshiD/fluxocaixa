@@ -245,7 +245,7 @@
 
 /* Cabeçalho da tabela */
 .table-header {
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: #ffffff;
     font-weight: bold;
     text-align: left;
@@ -285,6 +285,37 @@
 .negative {
     color: #d32f2f;
     font-weight: bold;
+}
+
+#filterForm {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    column-gap: 20px;
+
+    .inputWrapper {
+        display: flex;
+        flex-flow: column;
+        margin-right: 1rem;
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            color: #333;
+            appearance: none;
+        }
+    }
+
+    button {
+        max-width: 50%;
+    }
 }
 
 /* Responsividade */
