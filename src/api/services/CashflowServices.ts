@@ -5,6 +5,7 @@ import ServiceReturn from "../../types/serviceReturn"
 import { OperationCreationAtrributes, getSummaryAttributes } from "../../types/cashflowRequestData"
 import { updateBalanceSummary, getSummariesInRange } from "../utils/cashflow"
 import { Product } from "../models/Products"
+import { Constants } from "../models/constants"
 
 const CashFlowServices = {
     addOperation: async (data: OperationCreationAtrributes): Promise<ServiceReturn> => {
@@ -183,6 +184,54 @@ const CashFlowServices = {
             message: "Summary",
             status: 200,
             data: summary
+        }
+    },
+
+    getProfitMargin: async (): Promise<ServiceReturn> => {
+        try {
+            const constants = await Constants.findOne();
+            if (!constants) {
+                return {
+                    data: null,
+                    message: "Constants not found",
+                    status: 404,
+                };
+            }
+            return {
+                data: constants.profitMargin,
+                message: "Profit margin retrieved successfully",
+                status: 200,
+            };
+        } catch (error) {
+            console.error('Error in getProfitMargin:', error);
+            return {
+                data: null,
+                message: "internal server error",
+                status: 500,
+            };
+        }
+    },
+
+    setProfitMargin: async (profitMargin: number): Promise<ServiceReturn> => {
+        try {
+            let constants = await Constants.findOne();
+            if (!constants) {
+                constants = await Constants.create({ profitMargin } as any);
+            } else {
+                await constants.update({ profitMargin });
+            }
+            return {
+                data: constants.profitMargin,
+                message: "Profit margin updated successfully",
+                status: 200,
+            };
+        } catch (error) {
+            console.error('Error in setProfitMargin:', error);
+            return {
+                data: null,
+                message: "internal server error",
+                status: 500,
+            };
         }
     }
 }

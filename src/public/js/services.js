@@ -1,20 +1,26 @@
 async function fillProductTable() {
     try {
         const response = await apiUtils.get('/products/getAll');
+        const profitMarginResponse = await apiUtils.get('/cashflow/profitMargin');
+        const profitMargin = profitMarginResponse.success ? parseFloat(profitMarginResponse.data.data) : 0;
         if (response.success) {
             const products = response.data.data;
             const productTableBody = document.getElementById('productTableBody');
             productTableBody.innerHTML = '';
 
             products.forEach(product => {
+                const salePrice = (parseFloat(product.price) * (1 + profitMargin / 100)).toFixed(2);
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${product.name}</td>
                     <td class="dinheiro">R$ ${parseFloat(product.price).toFixed(2)}</td>
                     <td>${product.description}</td>
                     <td>${product.stock}</td>
+                    <td class="dinheiro">R$ ${salePrice}</td>
                     <td> 
                         <i class="fa fa-trash-o trashcan" style="font-size:16px;color:red; cursor: pointer;" onclick="deleteProduct('${product.id}', '${product.name}')"></i>
+                        <ion-icon name="pencil-outline" style="font-size:16px;color: blue; cursor: pointer;"></ion-icon>
+
                     </td>
                 `;
                 productTableBody.appendChild(row);
@@ -57,6 +63,47 @@ document.getElementById('createProductForm').addEventListener('submit', async (e
     fillProductTable();
 });
 
+async function fillProfitMargin() {
+    try {
+        const response = await apiUtils.get('/cashflow/profitMargin');
+        if (response.success) {
+            const profitMargin = parseFloat(response.data.data).toFixed(2);
+            document.getElementById('profitMargin').value = profitMargin;
+        } else {
+            alert(`Erro ao carregar margem de lucro: ${response.message}`);
+        }
+    } catch (error) {
+        console.error('Erro ao carregar margem de lucro:', error);
+        alert('Erro ao carregar margem de lucro. Por favor, tente novamente.');
+    }
+}
+
+document.getElementById('profitMarginForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const profitMargin = parseFloat(document.getElementById('profitMargin').value);
+
+    const profitMarginData = {
+        profitMargin: profitMargin
+    };
+
+    try {
+        const response = await apiUtils.post('/cashflow/setProfitMargin', profitMarginData);
+        if (response.success) {
+            alert('Margem de lucro alterada com sucesso!');
+        } else {
+            alert(`Erro ao alterar margem de lucro: ${response.message}`);
+        }
+    } catch (error) {
+        console.error('Erro ao alterar margem de lucro:', error);
+        alert('Erro ao alterar margem de lucro. Por favor, tente novamente.');
+    }
+
+    fillProfitMargin();
+    fillProductTable();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     fillProductTable();
+    fillProfitMargin();
 });

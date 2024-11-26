@@ -70,6 +70,23 @@ const CashFlowController = {
             data: summary.data
         })
     },
+
+    getProfitMargin: async (req: Request, res: Response) => {
+        const result = await services.getProfitMargin();
+        res.status(result.status).json({
+            message: result.message,
+            data: result.data
+        });
+    },
+
+    setProfitMargin: async (req: Request, res: Response) => {
+        const { profitMargin } = req.body;
+        const result = await services.setProfitMargin(profitMargin);
+        res.status(result.status).json({
+            message: result.message,
+            data: result.data
+        });
+    }
 };
 
 export default CashFlowController;

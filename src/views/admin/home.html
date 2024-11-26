@@ -26,10 +26,12 @@
 
                 <ul class='list'>
                     <li><a href='/admin'><ion-icon name="home-outline"></ion-icon> Dashboard</a></li>
+                    <li><a href='/admin/operacoes'><ion-icon name="git-compare-outline"></ion-icon>Operações</a></li>
                     <li><a class='activeBorder' href='/admin/home'><ion-icon name="wallet-outline"></ion-icon> Fluxo de
                             Caixa</a></li>
                     <li><a href='/admin/services'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
-                    <li><a href='/admin/relatorios'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios Financeiros</a></li>
+                    <li><a href='/admin/relatorios'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios
+                            Financeiros</a></li>
                     <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
                     <li><a href='/admin/settings'><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
                 </ul>
@@ -50,14 +52,19 @@
                         <input type="text" id="startDate" name="startDate" placeholder="dd/mm/yyyy"
                             pattern="\d{2}/\d{2}/\d{4}" maxlength="10" oninput="mask(this)">
                     </div>
+                    <div class="inputWrapper">
+                        <label for='endDate'>Data Final:</label>
+                        <input type="text" id="endDate" name="endDate" placeholder="dd/mm/yyyy"
+                            pattern="\d{2}/\d{2}/\d{4}" maxlength="10" oninput="mask(this)">
+                    </div>
                     <div class='fieldContent'>
                         <label for='filterType'>Tipo de operação</label>
-                        <select name='filterType' id='filterType'>
+                        <select name='filterType' id='filterType' onchange="filterOperations()">
                             <option value=''>Selecione</option>
-                            <option value='r'>Aluguel</option>
-                            <option value='b'>Compra</option>
-                            <option value='t'>Taxa</option>
-                            <option value='s'>Venda</option>
+                            <option value='aluguel'>Aluguel</option>
+                            <option value='compra'>Compra</option>
+                            <option value='taxa'>Taxa</option>
+                            <option value='venda'>Venda</option>
                         </select>
                     </div>
                 </div>
@@ -75,8 +82,8 @@
                         </tr>
                     </thead>
                     <tbody class="tabela-op">
-                        
-                       
+
+
                     </tbody>
                 </table>
             </div>
@@ -92,6 +99,19 @@
 
 
     </div>
+
+    <script>
+        const mask = (input) => {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 2) {
+                value = value.replace(/^(\d{2})(\d)/, '$1/$2');
+            }
+            if (value.length > 5) {
+                value = value.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+            }
+            input.value = value;
+        };
+    </script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

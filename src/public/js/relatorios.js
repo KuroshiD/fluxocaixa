@@ -14,17 +14,6 @@ const getFormDataAndSendRequest = async (initialDate, endDate) => {
     }
 };
 
-const mask = (input) => {
-    let value = input.value.replace(/\D/g, '');
-    if (value.length > 2) {
-        value = value.replace(/^(\d{2})(\d)/, '$1/$2');
-    }
-    if (value.length > 5) {
-        value = value.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
-    }
-    input.value = value;
-};
-
 const formatCurrency = (value) => {
     return `R$ ${parseFloat(value).toFixed(2)}`;
 };
@@ -61,6 +50,15 @@ const getSaturday = (d) => {
 };
 
 const formatDate = (date) => date.toISOString().split('T')[0];
+
+const mask = (input) => {
+    input.addEventListener('input', () => {
+        let value = input.value.replace(/\D/g, '');
+        if (value.length > 2) value = value.replace(/^(\d{2})(\d)/, '$1/$2');
+        if (value.length > 5) value = value.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+        input.value = value;
+    });
+};
 
 document.getElementById('filterForm').addEventListener('submit', async (event) => {
     event.preventDefault();
