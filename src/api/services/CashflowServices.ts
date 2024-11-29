@@ -6,6 +6,7 @@ import { OperationCreationAtrributes, getSummaryAttributes } from "../../types/c
 import { updateBalanceSummary, getSummariesInRange } from "../utils/cashflow"
 import { Product } from "../models/Products"
 import { Constants } from "../models/constants"
+import { Op } from "sequelize"
 
 const CashFlowServices = {
     addOperation: async (data: OperationCreationAtrributes): Promise<ServiceReturn> => {
@@ -227,6 +228,34 @@ const CashFlowServices = {
             };
         } catch (error) {
             console.error('Error in setProfitMargin:', error);
+            return {
+                data: null,
+                message: "internal server error",
+                status: 500,
+            };
+        }
+    },
+
+    getOperationsByDateRange: async (initialDate: Date, endDate: Date): Promise<ServiceReturn> => {
+        try {
+            const operations = await CashFlow.findAll({
+                where: {
+                    date: {
+                        [Op.between]: [initialDate, endDate]
+                    }
+                },
+                include: {
+                    model: Product,
+                    required: false
+                }
+            });
+            return {
+                data: operations,
+                message: "Operations retrieved successfully",
+                status: 200,
+            };
+        } catch (error) {
+            console.error('Error in getOperationsByDateRange:', error);
             return {
                 data: null,
                 message: "internal server error",

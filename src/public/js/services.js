@@ -1,7 +1,8 @@
 async function fillProductTable() {
     try {
-        const response = await apiUtils.get('/products/getAll');
-        const profitMarginResponse = await apiUtils.get('/cashflow/profitMargin');
+        const token = getToken()
+        const response = await apiUtils.get('/products/getAll', token);
+        const profitMarginResponse = await apiUtils.get('/cashflow/profitMargin', token);
         const profitMargin = profitMarginResponse.success ? parseFloat(profitMarginResponse.data.data) : 0;
         if (response.success) {
             const products = response.data.data;
@@ -14,13 +15,12 @@ async function fillProductTable() {
                 row.innerHTML = `
                     <td>${product.name}</td>
                     <td class="dinheiro">R$ ${parseFloat(product.price).toFixed(2)}</td>
-                    <td>${product.description}</td>
+                    <td>${product.description}</td> 
                     <td>${product.stock}</td>
                     <td class="dinheiro">R$ ${salePrice}</td>
                     <td> 
                         <i class="fa fa-trash-o trashcan" style="font-size:16px;color:red; cursor: pointer;" onclick="deleteProduct('${product.id}', '${product.name}')"></i>
-                        <ion-icon name="pencil-outline" style="font-size:16px;color: blue; cursor: pointer;"></ion-icon>
-
+                        <ion-icon name="pencil-outline" style="font-size:16px;color: blue; cursor: pointer;" onClick='openModal(${JSON.stringify(product)})'></ion-icon>
                     </td>
                 `;
                 productTableBody.appendChild(row);
@@ -31,6 +31,27 @@ async function fillProductTable() {
     } catch (error) {
         console.error('Erro ao carregar produtos:', error);
         alert('Erro ao carregar produtos. Por favor, tente novamente.');
+    }
+}
+
+async function deleteProduct(productId, productName) {
+    const confirmation = confirm(`Você realmente deseja deletar o item ${productName}?`);
+    if (!confirmation) {
+        return;
+    }
+
+    try {
+        const token = getToken();
+        const response = await apiUtils.delete(`/products/delete/${productId}`, null, token);
+        if (response.success) {
+            alert('Produto deletado com sucesso!');
+            fillProductTable();
+        } else {
+            alert(`Erro ao deletar produto: ${response.message}`);
+        }
+    } catch (error) {
+        console.error('Erro ao deletar produto:', error);
+        alert('Erro ao deletar produto. Por favor, tente novamente.');
     }
 }
 
@@ -48,7 +69,8 @@ document.getElementById('createProductForm').addEventListener('submit', async (e
     };
 
     try {
-        const response = await apiUtils.post('/products/create', productData);
+        const token = getToken()
+        const response = await apiUtils.post('/products/create', productData, token);
         if (response.success) {
             alert('Produto criado com sucesso!');
             document.getElementById('createProductForm').reset();
@@ -65,7 +87,8 @@ document.getElementById('createProductForm').addEventListener('submit', async (e
 
 async function fillProfitMargin() {
     try {
-        const response = await apiUtils.get('/cashflow/profitMargin');
+        const token = getToken()
+        const response = await apiUtils.get('/cashflow/profitMargin', token);
         if (response.success) {
             const profitMargin = parseFloat(response.data.data).toFixed(2);
             document.getElementById('profitMargin').value = profitMargin;
@@ -88,7 +111,8 @@ document.getElementById('profitMarginForm').addEventListener('submit', async (ev
     };
 
     try {
-        const response = await apiUtils.post('/cashflow/setProfitMargin', profitMarginData);
+        const token = getToken()
+        const response = await apiUtils.post('/cashflow/setProfitMargin', profitMarginData, token);
         if (response.success) {
             alert('Margem de lucro alterada com sucesso!');
         } else {

@@ -155,7 +155,7 @@
         padding: 30px 50px;
         margin-left: 270px;
         width: calc(100vw - 270px);
-        
+
         .logo {
             color: black;
             font-size: 30px;
@@ -163,7 +163,7 @@
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
-            
+
             img {
                 width: 60px;
                 margin-right: 10px;
@@ -297,10 +297,12 @@
         display: flex;
         flex-flow: column;
         margin-right: 1rem;
+
         label {
             display: block;
             margin-bottom: 5px;
         }
+
         input {
             width: 200px;
             padding: 10px;
@@ -317,6 +319,24 @@
         max-width: 50%;
     }
 }
+
+.btnReset {
+    padding: 10px;
+    font-size: 16px;
+    width: 150px;
+    height: 40px;
+    border: 2px solid var(--danger);
+    border-radius: 5px;
+    background-color: var(--danger);
+    color: var(--white);
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.btnReset:hover {
+    background-color: darkred;
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {

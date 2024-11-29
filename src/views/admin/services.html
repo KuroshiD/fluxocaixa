@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang='pt-br'>
+
 <head>
-    
+
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
@@ -9,6 +10,7 @@
     <link rel='stylesheet' href='/static/css/styleGlobal.css'>
     <link rel='stylesheet' href='/static/css/dashboard.css'>
     <link rel='stylesheet' href='/static/css/services.css'>
+    <link rel="stylesheet" href="/static/css/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -17,8 +19,9 @@
     <title>Dashboard</title>
 
 </head>
+
 <body>
-    
+
     <div class='interface'>
 
         <div class='menuLateral'>
@@ -31,15 +34,17 @@
                     <li><a href='/admin'><ion-icon name="home-outline"></ion-icon> Dashboard</a></li>
                     <li><a href='/admin/operacoes'><ion-icon name="git-compare-outline"></ion-icon>Operações</a></li>
                     <li><a href='/admin/home'><ion-icon name="wallet-outline"></ion-icon> Fluxo de Caixa</a></li>
-                    <li><a class='activeBorder' href='/admin/services'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
-                    <li><a href='/admin/relatorios'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios Financeiros</a></li>
-                    <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
+                    <li><a class='activeBorder' href='/admin/services'><ion-icon name="cube-outline"></ion-icon>
+                            Produtos e Serviços</a></li>
+                    <li><a href='/admin/relatorios'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios
+                            Financeiros</a></li>
+                    <!-- <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li> -->
                     <li><a href='/admin/settings'><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
                 </ul>
 
             </nav>
 
-            <button class='btnOut'><ion-icon name="log-out-outline"></ion-icon> Sign out</button>
+            <button class='btnOut' onclick="logout()"><ion-icon name="log-out-outline"></ion-icon> Sign out</button>
 
         </div>
 
@@ -68,7 +73,7 @@
                     <button type='submit'>Alterar</button>
                 </form>
             </section>
-z
+            z
             <section class='product-list'>
                 <h2 style="color: #333; font-weight: 0;">Lista de Produtos</h2>
                 <table>
@@ -88,6 +93,63 @@ z
             </section>
         </main>
 
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Editar Produto</h3>
+                    <button class="close-btn" id="closeModal">&times;</button>
+                </div>
+                <form id="editProductForm" class="edit-form">
+                    <div class="form-group">
+                        <label for="editProductName">Nome do Produto</label>
+                        <input 
+                            type="text" 
+                            id="editProductName" 
+                            name="productName" 
+                            placeholder="Digite o nome do produto" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editProductPrice">Estoque</label>
+                        <input 
+                            type="number" 
+                            id="editStock" 
+                            name="stock" 
+                            placeholder="Insira a quantidade em estoque" 
+                            step="0.01" 
+                            required
+                        >
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="editProductPrice">Preço</label>
+                        <input 
+                            type="number" 
+                            id="editProductPrice" 
+                            name="productPrice" 
+                            placeholder="Insira o preço do produto" 
+                            step="0.01" 
+                            required
+                        >
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="editProductDescription">Descrição</label>
+                        <textarea 
+                            id="editProductDescription" 
+                            name="productDescription" 
+                            placeholder="Descreva o produto" 
+                            rows="4" 
+                            required
+                        ></textarea>
+                    </div>
+    
+                    <button type="submit" class="submit-btn">Salvar Alterações</button>
+                </form>
+            </div>
+        </div>
 
         <footer>
             <div class="logo">
@@ -102,8 +164,11 @@ z
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/static/js/apiUtils.js"></script>
     <script src="/static/js/utils.js"></script>
+    <script src="/static/js/jwt.js"></script>
     <script src="/static/js/menu.js"></script>
-    <script src="/static/js/services.js"></script>  
+    <script src="/static/js/services.js"></script>
+    <script src="/static/js/modal.js"></script>
 
 </body>
+
 </html>

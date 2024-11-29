@@ -4,10 +4,11 @@ import auth from "../middleware/jwt"
 
 const UserRoutes = Router()
 
-UserRoutes.post('/register', UserController.register)
-UserRoutes.get('/getAll', UserController.getAll)
+UserRoutes.post('/register', auth, UserController.register)
+UserRoutes.get('/getAll', auth, UserController.getAll)
 UserRoutes.post('/login', UserController.login)
-UserRoutes.delete('/delete', UserController.deleteUser)
+UserRoutes.delete('/delete', auth, UserController.deleteUser)
 UserRoutes.put('/update', auth, UserController.updateUser)
+UserRoutes.post('/validateToken', auth, UserController.validateToken)
 
 export default UserRoutes;

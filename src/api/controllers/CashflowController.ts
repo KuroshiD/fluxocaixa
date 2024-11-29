@@ -86,6 +86,15 @@ const CashFlowController = {
             message: result.message,
             data: result.data
         });
+    },
+
+    getOperationsByDateRange: async (req: Request, res: Response) => {
+        const { initialDate, endDate } = req.body;
+        const result = await services.getOperationsByDateRange(initialDate, endDate);
+        res.status(result.status).json({
+            message: result.message,
+            data: result.data
+        });
     }
 };
 

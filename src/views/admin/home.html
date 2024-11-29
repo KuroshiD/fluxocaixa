@@ -32,13 +32,13 @@
                     <li><a href='/admin/services'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
                     <li><a href='/admin/relatorios'><ion-icon name="alert-circle-outline"></ion-icon> Relatórios
                             Financeiros</a></li>
-                    <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
+                    <!-- <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li> -->
                     <li><a href='/admin/settings'><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
                 </ul>
 
             </nav>
 
-            <button class='btnOut'><ion-icon name="log-out-outline"></ion-icon> Sign out</button>
+            <button class='btnOut' onclick="logout()"><ion-icon name="log-out-outline"></ion-icon> Sign out</button>
 
         </div>
 
@@ -50,12 +50,12 @@
                     <div class="inputWrapper">
                         <label for='startDate'>Data Inicial:</label>
                         <input type="text" id="startDate" name="startDate" placeholder="dd/mm/yyyy"
-                            pattern="\d{2}/\d{2}/\d{4}" maxlength="10" oninput="mask(this)">
+                            pattern="\d{2}/\d{2}/\d{4}" maxlength="10" oninput="mask(this)" onchange="filterByDate()">
                     </div>
                     <div class="inputWrapper">
                         <label for='endDate'>Data Final:</label>
                         <input type="text" id="endDate" name="endDate" placeholder="dd/mm/yyyy"
-                            pattern="\d{2}/\d{2}/\d{4}" maxlength="10" oninput="mask(this)">
+                            pattern="\d{2}/\d{2}/\d{4}" maxlength="10" oninput="mask(this)" onchange="filterByDate()" onkeypress="if(event.key === 'Enter') filterByDate()">
                     </div>
                     <div class='fieldContent'>
                         <label for='filterType'>Tipo de operação</label>
@@ -66,6 +66,10 @@
                             <option value='taxa'>Taxa</option>
                             <option value='venda'>Venda</option>
                         </select>
+                    </div>
+                    <div class="fieldContent">
+                        <label for="">Resetar Tabela</label>
+                        <button type="button" class='btnReset' onclick="resetTable()">Reset</button>
                     </div>
                 </div>
             </form>
@@ -117,6 +121,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/static/js/apiUtils.js"></script>
     <script src="/static/js/utils.js"></script>
+    <script src="/static/js/jwt.js"></script>
     <script src="/static/js/menu.js"></script>
     <script src="/static/js/operationTable.js"></script>
 

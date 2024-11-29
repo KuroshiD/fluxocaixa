@@ -61,6 +61,10 @@ const UserController = {
         const updatedUser = await UserService.update((req as any).user, updateData);
     
         res.status(updatedUser.status).json(updatedUser);
+    },
+
+    validateToken: async (req: Request, res: Response) => {
+        res.status(200).json({ message: "Token is valid" });
     }
 }
 

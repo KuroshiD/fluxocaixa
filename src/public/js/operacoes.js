@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function populateProductSelect() {
     try {
-        const response = await apiUtils.get('/products/getAll');
+        const token = getToken()
+        const response = await apiUtils.get('/products/getAll', token);
         if (response.success) {
             const products = response.data.data;
             const productSelect = document.getElementById('product');
@@ -34,7 +35,8 @@ async function populateProductSelect() {
 
 async function fetchProfitMargin() {
     try {
-        const response = await apiUtils.get('/cashflow/profitMargin');
+        const token = getToken()
+        const response = await apiUtils.get('/cashflow/profitMargin', token);
         if (response.success) {
             const profitMargin = parseFloat(response.data.data).toFixed(2);
             document.getElementById('profitMargin').value = profitMargin;
@@ -116,7 +118,8 @@ async function handleFormSubmit(event) {
     };
 
     try {
-        const response = await apiUtils.post('/cashflow/add', data);
+        const token = getToken()
+        const response = await apiUtils.post('/cashflow/add', data, token);
         if (response.success) {
             alert('Operação registrada com sucesso!');
             form.reset();

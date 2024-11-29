@@ -6,7 +6,8 @@ const getFormDataAndSendRequest = async (initialDate, endDate) => {
     };
 
     try {
-        const response = await apiUtils.post('/cashflow/summary', data);
+        const token = getToken()
+        const response = await apiUtils.post('/cashflow/summary', data, token);
         return response;
     } catch (error) {
         console.error('Request failed:', error);

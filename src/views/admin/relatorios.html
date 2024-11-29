@@ -33,13 +33,13 @@
                     <li><a href='/admin/services'><ion-icon name="cube-outline"></ion-icon> Produtos e Serviços</a></li>
                     <li><a class='activeBorder' href='/admin/relatorios'><ion-icon
                                 name="alert-circle-outline"></ion-icon> Relatórios Financeiros</a></li>
-                    <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li>
+                    <!-- <li><a href='/admin/tutoriais'><ion-icon name="book-outline"></ion-icon> Tutoriais</a></li> -->
                     <li><a href='/admin/settings'><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
                 </ul>
 
             </nav>
 
-            <button class='btnOut'><ion-icon name="log-out-outline"></ion-icon> Sign out</button>
+            <button class='btnOut' onclick="logout()"><ion-icon name="log-out-outline"></ion-icon> Sign out</button>
 
         </div>
 
@@ -83,7 +83,7 @@
             </section>
         </main>
 
-            
+
 
     </div>
 
@@ -91,6 +91,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/static/js/apiUtils.js"></script>
     <script src="/static/js/utils.js"></script>
+    <script src="/static/js/jwt.js"></script>
     <script src="/static/js/menu.js"></script>
     <script src="/static/js/relatorios.js"></script>
 

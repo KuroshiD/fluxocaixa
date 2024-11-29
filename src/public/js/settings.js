@@ -14,7 +14,8 @@ const addCad = document.querySelector('.addCad');
 const adminTableBody = document.querySelector('[data-info="admin-table"]');
 
 const registerUser = async (data) => {
-    const response = await apiUtils.post('/user/register', data);
+    const token = getToken()
+    const response = await apiUtils.post('/user/register', data, token);
     return response;
 };
 
@@ -26,9 +27,9 @@ const deleteUser = async (id, username) => {
     data = {
         id
     }
+    const token = getToken()
 
-
-    const response = await apiUtils.delete('/user/delete', data);
+    const response = await apiUtils.delete('/user/delete', data, token);
     if (!response.success) {
         return alert(response.message);
     }
@@ -38,7 +39,8 @@ const deleteUser = async (id, username) => {
 };
 
 const buildAdminTable = async () => {
-    const response = await apiUtils.get('/user/getAll');
+    const token = getToken()
+    const response = await apiUtils.get('/user/getAll', token);
     if (!response.success) {
         return alert(response.message);
     }

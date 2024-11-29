@@ -31,3 +31,30 @@ const getLocalStorage = (key) => {
     }
 };
 
+const getToken = () => {
+    return getLocalStorage("token")
+}
+
+const redirectToIndex = (message) => {
+    alert(message);
+    window.location.href = getBaseUrl();
+};
+
+const logout = () => {
+    localStorage.removeItem('token');
+    window.location.href = getBaseUrl();
+};
+
+const validateAndRedirect = async () => {
+    const token = getToken();
+    if (!token) {
+        redirectToIndex("Sessão inexistente");
+        return;
+    }
+
+    const response = await apiUtils.post('/user/validateToken', null, token);
+    if (!response.success) {
+        localStorage.removeItem('token');
+        redirectToIndex("Sessão expirada");
+    }
+};

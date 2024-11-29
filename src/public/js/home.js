@@ -4,7 +4,8 @@ const resultado = document.querySelector('.resultado')
 const saldo = document.querySelector('.saldo')
 
 const buildHome = async () => {
-    const summary = await apiUtils.post("/cashflow/summary");
+    const token = getToken()
+    const summary = await apiUtils.post("/cashflow/summary", null, token);
 
     if (!summary.success) return;
 
@@ -37,12 +38,13 @@ const getMonthlySummaries = async () => {
         initialDate: new Date(year, monthIndex, 1).toISOString().split('T')[0],
         endDate: new Date(year, monthIndex + 1, 0).toISOString().split('T')[0]
     });
+    const token = getToken()
 
     const summaryPromises = months.map((month, monthIndex) => {
         const { initialDate, endDate } = getMonthDateRange(monthIndex, currentYear);
 
         return apiUtils
-            .post("/cashflow/summary", { initialDate, endDate }, null)
+            .post("/cashflow/summary", { initialDate, endDate }, token)
             .then(summary => ({ month, summary }))
             .catch(error => {
                 console.error(`Erro ao buscar dados para o mês de ${month}:`, error);
